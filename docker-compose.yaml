@@ -3,6 +3,8 @@ services:
   app:
     build: .
     restart: always
+    environment:
+      - spring.datasource.url=jdbc:postgresql://postgresdb:5432/bookStore?allowPublicKeyRetrieval=true
     ports:
       - "3000:3000"
     depends_on:
