@@ -30,7 +30,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, String>> handleJsonParseException(HttpMessageNotReadableException ex) {
         Map<String, String> errorResponse = new HashMap<>();
 //        ex.printStackTrace();
-        errorResponse.put("error", "Invalid JSON request body: " + ex.getMessage());
+        errorResponse.put("error", "Invalid JSON request body");
+//        errorResponse.put("error", "Invalid JSON request body: " + ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 

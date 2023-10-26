@@ -20,5 +20,5 @@ public class BookResponseDTO  extends BaseResponseDTO{
     private String ISBN;
     private LocalDate publication_date;
     private double price;
-    private Author author;
+    private String author;
 }

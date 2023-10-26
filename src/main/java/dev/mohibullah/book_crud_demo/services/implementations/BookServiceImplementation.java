@@ -97,7 +97,7 @@ public class BookServiceImplementation implements BookServiceInterface {
     }
 
     @Override
-    public void deleteBook(BookRequestDTO bookRequestDTO, int bookId) {
+    public void deleteBook(int bookId) {
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new ItemNotFoundException("Book could not be found"));
         bookRepository.delete(book);
     }
@@ -106,7 +106,8 @@ public class BookServiceImplementation implements BookServiceInterface {
     private BookResponseDTO mapToResponseDto(Book book) {
         BookResponseDTO bookResponseDTO = new BookResponseDTO();
 
-        bookResponseDTO.setAuthor(book.getAuthor());
+        bookResponseDTO.setId(book.getId());
+        bookResponseDTO.setAuthor(book.getAuthor().getName());
         bookResponseDTO.setISBN(book.getISBN());
         bookResponseDTO.setPrice(book.getPrice());
         bookResponseDTO.setTitle(book.getTitle());
@@ -127,10 +128,10 @@ public class BookServiceImplementation implements BookServiceInterface {
         }
 
         Book book = new Book();
-        book.setISBN(bookRequestDTO.getISBN());
+        book.setISBN(bookRequestDTO.getBookISBN());
         book.setPrice(bookRequestDTO.getPrice());
         book.setTitle(bookRequestDTO.getTitle());
-        book.setPublication_date(bookRequestDTO.getPublication_date());
+        book.setPublication_date(bookRequestDTO.getPublicationDate());
         book.setAuthor(author);
 
         return book;
@@ -147,10 +148,10 @@ public class BookServiceImplementation implements BookServiceInterface {
 
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new ItemNotFoundException("Book could not be found"));
 
-        book.setISBN(bookRequestDTO.getISBN());
+        book.setISBN(bookRequestDTO.getBookISBN());
         book.setPrice(bookRequestDTO.getPrice());
         book.setTitle(bookRequestDTO.getTitle());
-        book.setPublication_date(bookRequestDTO.getPublication_date());
+        book.setPublication_date(bookRequestDTO.getPublicationDate());
         book.setAuthor(author);
 
         return book;

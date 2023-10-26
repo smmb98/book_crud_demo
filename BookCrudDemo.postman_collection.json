@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "a80c85d2-f589-4fbd-9c36-d9e1bcf72c69",
+		"name": "BookCrudDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20545708"
+	},
+	"item": [
+		{
+			"name": "Fetch All Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/books?pageNo=0&pageSize=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch All Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/books?pageNo=0&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Oct 2023 18:01:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"createdAt\": \"2023-10-26T18:00:02.979461\",\n            \"updatedAt\": \"2023-10-26T18:00:02.979464\",\n            \"id\": 2,\n            \"title\": \"Harry Potter\",\n            \"publication_date\": \"2023-01-01\",\n            \"price\": 10,\n            \"author\": \"J.K Rowling\",\n            \"isbn\": \"4166035835\"\n        },\n        {\n            \"createdAt\": \"2023-10-26T18:00:42.958835\",\n            \"updatedAt\": \"2023-10-26T18:00:42.958839\",\n            \"id\": 3,\n            \"title\": \"Harry Potter\",\n            \"publication_date\": \"2023-01-01\",\n            \"price\": 10,\n            \"author\": \"J.K Rowling\",\n            \"isbn\": \"4166035835\"\n        },\n        {\n            \"createdAt\": \"2023-10-26T18:00:49.003337\",\n            \"updatedAt\": \"2023-10-26T18:00:49.003342\",\n            \"id\": 4,\n            \"title\": \"Harry Potter\",\n            \"publication_date\": \"2023-01-01\",\n            \"price\": 14.8,\n            \"author\": \"J.K Rowling\",\n            \"isbn\": \"4166035835\"\n        },\n        {\n            \"createdAt\": \"2023-10-26T18:01:09.071307\",\n            \"updatedAt\": \"2023-10-26T18:01:09.071311\",\n            \"id\": 5,\n            \"title\": \"Harry Potter\",\n            \"publication_date\": \"2023-01-01\",\n            \"price\": 14.8,\n            \"author\": \"J.K Rowling\",\n            \"isbn\": \"4166035835111\"\n        }\n    ],\n    \"page\": 0,\n    \"pageSize\": 10,\n    \"totalElements\": 4,\n    \"totalPages\": 1,\n    \"last\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Book by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/books/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch All Books Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Oct 2023 18:02:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"createdAt\": \"2023-10-26T18:00:02.979461\",\n    \"updatedAt\": \"2023-10-26T18:02:10.09846\",\n    \"id\": 2,\n    \"title\": \"Harry Potters\",\n    \"publication_date\": \"2022-01-01\",\n    \"price\": 11,\n    \"author\": \"J.K Rowlingw\",\n    \"isbn\": \"4166035835111\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Harry Potters\",\r\n    \"publicationDate\": \"2022-01-01\",\r\n    \"price\": \"11.0\",\r\n    \"author\": \"J.K Rowlingw\",\r\n    \"bookISBN\": \"4166035835111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/books/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch Book by Id Copy",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Harry Potters\",\r\n    \"publicationDate\": \"2022-01-01\",\r\n    \"price\": \"11.0\",\r\n    \"author\": \"J.K Rowlingw\",\r\n    \"bookISBN\": \"4166035835111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books",
+								"2"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Oct 2023 18:02:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"createdAt\": \"2023-10-26T18:00:02.979461\",\n    \"updatedAt\": \"2023-10-26T18:02:10.09846\",\n    \"id\": 2,\n    \"title\": \"Harry Potters\",\n    \"publication_date\": \"2022-01-01\",\n    \"price\": 11,\n    \"author\": \"J.K Rowlingw\",\n    \"isbn\": \"4166035835111\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"publicationDate\": \"2023-01-01\",\r\n    \"price\": \"14.8\",\r\n    \"author\": \"J.K Rowling\",\r\n    \"bookISBN\": \"4166035835\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Book Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"publicationDate\": \"2023-01-01\",\r\n    \"price\": \"14.8\",\r\n    \"author\": \"J.K Rowling\",\r\n    \"bookISBN\": \"4166035835\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 26 Oct 2023 18:01:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"createdAt\": \"2023-10-26T18:01:09.07130694\",\n    \"updatedAt\": \"2023-10-26T18:01:09.07131072\",\n    \"id\": 5,\n    \"title\": \"Harry Potter\",\n    \"publication_date\": \"2023-01-01\",\n    \"price\": 14.8,\n    \"author\": \"J.K Rowling\",\n    \"isbn\": \"4166035835111\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Book Copy",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 26 Oct 2023 18:01:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

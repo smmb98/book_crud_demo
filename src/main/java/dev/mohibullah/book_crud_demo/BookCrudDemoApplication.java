@@ -10,8 +10,6 @@ public class BookCrudDemoApplication {
 	private String databaseUrl;
 	public static void main(String[] args) {
 		SpringApplication.run(BookCrudDemoApplication.class, args);
-
-
 	}
 
 }

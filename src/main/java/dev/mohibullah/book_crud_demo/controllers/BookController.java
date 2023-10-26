@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class BookController {
-private final BookServiceImplementation bookServiceImplementation;
+    private final BookServiceImplementation bookServiceImplementation;
 
     @GetMapping("books")
     public ResponseEntity<BaseShowAllResponseDTO<BookResponseDTO>> showBooks(
@@ -51,9 +51,6 @@ private final BookServiceImplementation bookServiceImplementation;
     }
 
 
-
-
-
     @PutMapping("books/{id}")
     public ResponseEntity<BookResponseDTO> updateBook(
             @Valid @RequestBody BookRequestDTO bookRequestDTO,
@@ -65,11 +62,9 @@ private final BookServiceImplementation bookServiceImplementation;
     }
 
     @DeleteMapping("books/{id}")
-    public ResponseEntity<Void> deleteBook(
-            @Valid @RequestBody BookRequestDTO bookRequestDTO,
-            @PathVariable("id") int bookId) {
+    public ResponseEntity<Void> deleteBook(@PathVariable("id") int bookId) {
 
-        bookServiceImplementation.deleteBook(bookRequestDTO, bookId);
+        bookServiceImplementation.deleteBook(bookId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
