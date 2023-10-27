@@ -7,6 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// This DTO class represents a request body for creating or updating a book in the controller. 
+// It includes fields for the book's title, ISBN, publication date, price, and the author's name. 
+// Each field has associated validation constraints and error messages to ensure the data meets 
+// specific criteria when processing the request.
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

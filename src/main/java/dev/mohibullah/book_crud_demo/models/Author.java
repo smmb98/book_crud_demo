@@ -9,6 +9,13 @@ import lombok.Setter;
 
 import java.util.List;
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// This entity class represents an "Author" in the application. 
+// It includes fields for the author's ID, name, and a list of associated books. 
+// It inherits timestamp fields 'createdAt' and 'updatedAt' from the Base class.
+// The @JsonInclude annotation excludes properties with empty values from JSON serialization.
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_EMPTY)

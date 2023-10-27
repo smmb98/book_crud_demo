@@ -19,12 +19,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// This class is a Spring service that implements the BookServiceInterface. 
+// It provides methods for handling book-related operations, including retrieving books 
+// (with and without pagination), retrieving a book by its ID, creating a new book, 
+// updating an existing book, and deleting a book. Additionally, it contains helper methods 
+// for mapping between entities and data transfer objects.
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 @Service
 @RequiredArgsConstructor
 public class BookServiceImplementation implements BookServiceInterface {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
 
+    // Retrieve a list of books with optional pagination.
+    // Handles both all books retrieval and paginated results.
     @Override
     public BaseShowAllResponseDTO<BookResponseDTO> showBooks(int pageNo, int pageSize) {
         if (pageSize == 0) {
@@ -75,12 +85,14 @@ public class BookServiceImplementation implements BookServiceInterface {
         }
     }
 
+    // Retrieve a book by its unique ID.
     @Override
     public BookResponseDTO showBookById(int bookId) {
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new ItemNotFoundException("Book could not be found"));
         return mapToResponseDto(book);
     }
-
+    
+    // Create a new book based on the provided book request data.
     @Override
     public BookResponseDTO createBook(BookRequestDTO bookRequestDTO) {
 
@@ -89,20 +101,23 @@ public class BookServiceImplementation implements BookServiceInterface {
         return mapToResponseDto(book);
     }
 
+    // Update an existing book with the provided book request data.
     @Override
     public BookResponseDTO updateBook(BookRequestDTO bookRequestDTO, int bookId) {
         Book book = bookRepository.save(mapToEntity(bookRequestDTO, bookId));
 
         return mapToResponseDto(book);
     }
-
+     
+    // Delete a book by its unique ID.
     @Override
     public void deleteBook(int bookId) {
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new ItemNotFoundException("Book could not be found"));
         bookRepository.delete(book);
     }
 
-
+    // Helper method to map a Book entity to a BookResponseDTO.
+    // Maps a Book entity to a data transfer object for responses.
     private BookResponseDTO mapToResponseDto(Book book) {
         BookResponseDTO bookResponseDTO = new BookResponseDTO();
 
@@ -118,6 +133,8 @@ public class BookServiceImplementation implements BookServiceInterface {
         return bookResponseDTO;
     }
 
+    // Helper method to map a BookRequestDTO to a Book entity.
+    // Maps a data transfer object to a Book entity for creation.
     private Book mapToEntity(BookRequestDTO bookRequestDTO) {
         Author author = authorRepository.findByName(bookRequestDTO.getAuthor());
 
@@ -137,6 +154,8 @@ public class BookServiceImplementation implements BookServiceInterface {
         return book;
     }
 
+    // Helper method to map a BookRequestDTO to an existing Book entity for update.
+    // Maps a data transfer object to an existing Book entity for updating.
     private Book mapToEntity(BookRequestDTO bookRequestDTO, int bookId) {
         Author author = authorRepository.findByName(bookRequestDTO.getAuthor());
 

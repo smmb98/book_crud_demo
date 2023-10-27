@@ -7,6 +7,15 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// This DTO class, BaseResponseDTO, is a common parent for ResponseDTOs in the application and is 
+// used for representing responses and includes fields 
+// for the creation timestamp (createdAt) and the last update timestamp (updatedAt). 
+// The @JsonInclude annotation specifies that fields with empty values should not be 
+// included in the JSON serialization. It's commonly used to avoid sending empty fields 
+// in the response to reduce unnecessary data transfer.
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,5 +23,4 @@ import java.time.LocalDateTime;
 public class BaseResponseDTO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
 }

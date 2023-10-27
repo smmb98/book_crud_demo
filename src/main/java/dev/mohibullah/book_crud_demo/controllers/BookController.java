@@ -11,6 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// This class represents a Spring Boot controller for managing book-related HTTP requests.
+// It handles operations such as retrieving a list of books, retrieving a book by its ID,
+// creating a new book, updating an existing book, and deleting a book. 
+// The @RequestMapping annotation specifies the base path for all the endpoints, 
+// and the @RequiredArgsConstructor annotation is used for constructor injection of BookServiceImplementation.
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -22,6 +30,7 @@ public class BookController {
             @RequestParam(value = "pageNo", defaultValue = "0") int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
 
+        // Check and handle invalid pagination parameters.
         if (pageNo < 0 || pageSize < 0) {
             throw new InvalidPaginationException();
         }

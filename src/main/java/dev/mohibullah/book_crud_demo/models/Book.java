@@ -9,6 +9,13 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+// This entity class represents a "Book" in the application. It includes fields for the 
+// book's ID, title, ISBN, publication date, price, and a reference to the associated author. 
+// It inherits timestamp fields 'createdAt' and 'updatedAt' from the Base class.
+// The @JsonInclude annotation excludes properties with empty values from JSON serialization.
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
